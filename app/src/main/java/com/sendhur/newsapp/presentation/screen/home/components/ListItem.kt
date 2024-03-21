@@ -45,16 +45,6 @@ fun ListContent(modifier: Modifier, articles: LazyPagingItems<SearchResponse.Art
     }
 }
 
-/*
-* items(
-            items = news,
-            key = { unsplashImage ->
-                unsplashImage.id
-            }
-        ) { unsplashImage ->
-            unsplashImage?.let { UnsplashItem(unsplashImage = it) }
-        }*/
-
 @ExperimentalCoilApi
 @Composable
 fun NewsItem(news: SearchResponse.Article) {
@@ -84,11 +74,9 @@ fun NewsItem(news: SearchResponse.Article) {
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis)
 
-            Text(text = news.content,
+            Text(modifier = Modifier.padding(top = 6.dp), text = news.content,
                 color = MaterialTheme.typography.bodyMedium.color,
-                fontSize = MaterialTheme.typography.bodyMedium.fontSize,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis)
+                fontSize = MaterialTheme.typography.bodyMedium.fontSize)
         }
     }
 }
